@@ -20,6 +20,8 @@ class LinkedList{
         void addLast(T data);
         void printAll();
         void search(T dato);
+        void update(int posicion, T dato);
+        //void dele(int posicion);
 };
 
 
@@ -88,7 +90,9 @@ void LinkedList<T>::search(T dato){
     int contador = 0;
     int elementos = 0;
 
-    while(current->getNext() != nullptr){
+    cout << "Se busco el elemento " << dato << endl;
+
+    while(current != nullptr){
         if (current->getData() == dato){
             elementos++;
             cout << "Se encontro en el lugar: " << contador << endl;
@@ -104,6 +108,42 @@ void LinkedList<T>::search(T dato){
         cout << "Se encontraron " << elementos << " Coincidencias" << endl;
     }
 }
+
+template <class T>
+void LinkedList<T>::update(int posicion, T dato){
+    Node<T> *current = head;
+    //current->printNode();
+
+    int contador = 0;
+    if (posicion <= size){
+        while(current != nullptr){
+        if (contador == posicion){
+            current->setData(dato);
+        }
+        current = current->getNext();
+        //current->printNode();
+        contador++;
+        }
+    }else{
+        cout << "Posicion demasiado grande, ingrese de nuevo" << endl;
+    }
+}
+
+/**template <class T>
+void LinkedList<T>::dele(int posicion){
+    Node<T> *current = head;
+    int contador = 0;
+    while(contador < size){
+        if (contador == posicion){
+            head = head->getNext();
+            delete current;
+            current = head;
+            size--;
+        }
+        contador++;
+    }
+}**/
+
 
 
 #endif
