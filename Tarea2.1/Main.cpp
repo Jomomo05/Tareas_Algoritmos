@@ -5,6 +5,8 @@
 //El presente codigo creara una Linked List y aplicara las diferentes palabras de CRUD.
 #include <iostream>
 #include "LinkedList.h"
+#include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -51,15 +53,23 @@ template <class T>
 void del(LinkedList<T> lista, int posicion){
     lista.dele(posicion);
     lista.printAll();
-
 }
 
 int main(){
     LinkedList<int> lista; //Creacion de LinkedList lista
-    //Creacion de 3 elementos en la Linked List y su existencia
-    lista.addFirst(5);
-    lista.addLast(5);
-    lista.addLast(7);
+    
+    //Lectura de elementos
+    ifstream in("caso1.txt"); // Primer valor del archivo es el tamaño del arreglo
+    string s;
+    getline(in, s);
+    int n = stoi(s);
+    int *arreglo = new int[n];
+    int i = 0;
+    while(getline(in, s)){
+        lista.addLast(stoi(s));
+        i++;
+    }
+    in.close();
     imprimir(lista);
     cout << " " << endl;
 

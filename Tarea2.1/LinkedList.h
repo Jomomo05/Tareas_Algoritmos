@@ -36,6 +36,7 @@ LinkedList<T>::~LinkedList(){
     deleteAll();
 }
 //Funcion para borrar todos los nodos de la linked list
+//COmplejidad: O(n) solo depende de la longitud del la lista
 template <class T>
 void LinkedList<T>::deleteAll(){
     Node<T> *current = head;
@@ -48,12 +49,15 @@ void LinkedList<T>::deleteAll(){
 }
 
 //Funcion para anadir al inicio un elemento
+//Complejidad O(1), es constante, siempre se toma en cuenta la head y el valor antes de ella (se mueve)
 template <class T>
 void LinkedList<T>::addFirst(T data){
     head = new Node<T>(data, head);
     size++;
 }
 //Funcion para anadir al final un elemento
+//Complejidad O(n), recorre la lista hasta el final.
+//Si tuvieramos uan funcion tail, seria constante como addFirst
 template <class T>
 void LinkedList<T>::addLast(T data){
     Node<T> *current = head;
