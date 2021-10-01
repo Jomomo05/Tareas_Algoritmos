@@ -128,8 +128,8 @@ void LinkedList<T>::update(int posicion, T dato){
         cout << "Posicion demasiado grande, ingrese de nuevo" << endl;
     }
 }
-
-/**template <class T>
+/**
+template <class T>
 void LinkedList<T>::dele(int posicion){
     Node<T> *current = head;
     int contador = 0;
@@ -142,8 +142,8 @@ void LinkedList<T>::dele(int posicion){
         }
         contador++;
     }
-}**/
-
+}
+**/
 
 
 #endif

@@ -36,7 +36,7 @@ void update(LinkedList<T> lista, int posicion, T dato){
     lista.update(posicion, dato);
     lista.printAll(); //Revisar el cambio
 }
-
+/**
 template <class T>
 void del(LinkedList<T> lista, int posicion);
 
@@ -46,6 +46,7 @@ void del(LinkedList<T> lista, int posicion){
     lista.printAll();
 
 }
+**/
 
 
 
