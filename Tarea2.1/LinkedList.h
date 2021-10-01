@@ -2,6 +2,9 @@
 #define __LinkedList_h__
 
 #include "Node.h"
+#include <iostream>
+
+using namespace std;
 
 template <class T>
 class LinkedList{
@@ -15,6 +18,8 @@ class LinkedList{
 
         void addFirst(T data);
         void addLast(T data);
+        void printAll();
+        void search(T dato);
 };
 
 
@@ -62,4 +67,43 @@ void LinkedList<T>::addLast(T data){
     current->setNext(new Node<T>(data));
     size++;
 }
+
+template <class T>
+void LinkedList<T>::printAll(){
+    Node<T> *current = head;
+    current->printNode();
+
+    while(current->getNext() != nullptr){
+        //current->printNode();
+        current = current->getNext();
+        current->printNode();
+    }
+}
+
+template <class T>
+void LinkedList<T>::search(T dato){
+    Node<T> *current = head;
+    //current->printNode();
+
+    int contador = 0;
+    int elementos = 0;
+
+    while(current->getNext() != nullptr){
+        if (current->getData() == dato){
+            elementos++;
+            cout << "Se encontro en el lugar: " << contador << endl;
+        }
+        current = current->getNext();
+        //current->printNode();
+        contador++;
+    }
+
+    if (elementos == 0){
+        cout << "No se encontraron coincidencias" << endl;
+    }else {
+        cout << "Se encontraron " << elementos << " Coincidencias" << endl;
+    }
+}
+
+
 #endif

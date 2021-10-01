@@ -1,3 +1,7 @@
+#include <iostream>
+
+using namespace std;
+
 template<class T>
 class Node{
     private:
@@ -9,7 +13,8 @@ class Node{
         T getData();
         Node<T>* getNext();
         void setData(T data);
-        void setNext(Node<T>* next); 
+        void setNext(Node<T>* next);
+        void printNode();
 };
 
 template <class T>
@@ -42,4 +47,9 @@ void Node<T>::setData(T data){
 template <class T>
 void Node<T>::setNext(Node<T>* next){
     this->next = next;
+}
+
+template <class T> //Imprimir
+void Node<T>::printNode(){
+    cout << data << endl;
 }
