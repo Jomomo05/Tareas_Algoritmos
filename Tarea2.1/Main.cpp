@@ -1,8 +1,15 @@
+
+//Actividad 2.1 Estructura de datos y algoritmos fundamentales
+//Hecho por: Jose Miguel Beltran Cinco A00227714
+//A 30 de septiembre del 2021
+//El presente codigo creara una Linked List y aplicara las diferentes palabras de CRUD.
 #include <iostream>
 #include "LinkedList.h"
 
 using namespace std;
 
+//Para las clases, con el proposito de no formar la dependencia como un metodo, decidi funciones que pasaran los respectivos metodos para su procedimiento.
+//Vease LinkedList.h para ver mas detalles de su funcionamiento
 template <class T>
 void imprimir(LinkedList<T>); //Funcion que imprime todos los valores de la LinkedList
 
@@ -36,7 +43,7 @@ void update(LinkedList<T> lista, int posicion, T dato){
     lista.update(posicion, dato);
     lista.printAll(); //Revisar el cambio
 }
-/**
+
 template <class T>
 void del(LinkedList<T> lista, int posicion);
 
@@ -46,11 +53,6 @@ void del(LinkedList<T> lista, int posicion){
     lista.printAll();
 
 }
-**/
-
-
-
-
 
 int main(){
     LinkedList<int> lista; //Creacion de LinkedList lista
@@ -67,7 +69,7 @@ int main(){
     cout << " " << endl;
     update(lista, 3, 5); //Modificar el cuarto elemento de la lista (3 porque inicia en 0) de la lista, si el eelemento de posicion es mas grande: Error.
     cout << " " << endl;
-    //del(lista, 2); //Eliminar el tercer elemento de la lista 
+    del(lista, 2); //Eliminar el tercer elemento de la lista 
 
     return 0;
 }
